@@ -12,4 +12,5 @@
         $payam = substr($message, 5);
         file_get_contents($tel_api."/sendmessage?chat_id=".$chatId."&text=".$payam);
     }
+    echo 'h';
 ?>

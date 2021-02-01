@@ -83,6 +83,10 @@
         {
             $text = $text." 🔺\n";
         }
+        else if(($arz_dolar_change_sell + 0) == 0)
+        {
+            $text = $text." 🔘\n";
+        }
         else{
             $text = $text." 🔻\n";
         }
@@ -94,6 +98,10 @@
         if(($arz_dolar_change_buy+0) > 0)
         {
             $text = $text." 🔺";
+        }
+        else if(($arz_dolar_change_buy + 0) == 0)
+        {
+            $text = $text." 🔘";
         }
         else{
             $text = $text." 🔻";

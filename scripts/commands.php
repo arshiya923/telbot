@@ -90,7 +90,7 @@
         $arz_dolar_buy = $arz_json_decoded['usd_buy']['value'];
         $arz_dolar_change_buy = $arz_json_decoded['usd_buy']['change'];
 
-        $text = $text."قیمت دلار آمریکا خرید : ".$arz_dolar_buy."\n تغییرات ".abs($arz_dolar_change_buy);
+        $text = $text."قیمت دلار آمریکا خرید : ".$arz_dolar_buy."\n تغییرات ".$arz_dolar_change_buy;
         if(($arz_dolar_change_buy+0) > 0)
         {
             $text = $text." 🔺";

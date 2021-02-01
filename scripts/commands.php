@@ -71,4 +71,24 @@
         $text = implode($pass);
         file_get_contents($tel_api."/sendmessage?chat_id=".$chatId."&text=".$text);
     }
+    else if (strpos($message, "/arz") === 0) {
+        $arz_json_encoded = file_get_contents("http://api.openweathermap.org/data/2.5/weather?q=".$city."&appid=2f24c59900e19fa5b545708c99edad89");
+        $arz_json_decoded = json_decode($weather_json_encoded, TRUE);
+
+        $arz_dolar = $arz_json_decoded['usd_sell']['value'];
+        $arz_dolar_change = $arz_json_decoded['usd_sell']['change'];
+
+        $text = "قیمت دلار آمریکا ".$arz_dolar."\n تغییرات ".abs($arz_dolar_change+0);
+        if(($arz_dolar_change+0) > 0)
+        {
+            $text = $text." 🔺";
+        }
+        else{
+            $text = $text." 🔻";
+        }
+
+        $text = urlencode($text);
+
+        file_get_contents($tel_api."/sendmessage?chat_id=".$chatId."&text=".$text);
+    }
 ?>

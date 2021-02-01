@@ -53,4 +53,22 @@
 
         file_get_contents($tel_api."/sendmessage?chat_id=".$chatId."&text=".$text);
     }
+    else if (strpos($message, "/pass") === 0) {
+        $passlen = substr($message, 6);
+        $passlen = $passlen + 0;
+
+        $alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
+
+        $pass = array(); //remember to declare $pass as an array
+
+        $alphaLength = strlen($alphabet) - 1; //put the length -1 in cache
+
+        for ($i = 0; $i < $passlen; $i++) {
+            $n = rand(0, $alphaLength);
+            $pass[] = $alphabet[$n];
+        }
+
+        $text = implode($pass);
+        file_get_contents($tel_api."/sendmessage?chat_id=".$chatId."&text=".$text);
+    }
 ?>

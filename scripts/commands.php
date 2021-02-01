@@ -23,7 +23,7 @@
         $weather_farsi = '';
         if($weather_eng === "Clear")
         {
-            $weather_farsi = utf8_decode('صاف')
+            $weather_farsi = utf8_decode('صاف');
         }
         
         file_get_contents($tel_api."/sendmessage?chat_id=".$chatId."&text=Here's the weather in ".$city." : ". $weather_farsi);

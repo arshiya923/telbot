@@ -55,7 +55,7 @@
     }
     else if (strpos($message, "/pass") === 0) {
         $passlen = substr($message, 6);
-        $passlen = $passlen + 0;
+        $passlen = intval($passlen);
 
         $alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890*@&$';
 

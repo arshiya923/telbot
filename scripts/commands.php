@@ -45,7 +45,7 @@
 
         $text = "هوای ".$city_fa." ".$weather_farsi." است.";
         
-        if($city == "")
+        if($weather_eng == "")
         {
             $text = "شهر پیدا نشد!!!";
         }

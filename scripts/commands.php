@@ -34,6 +34,6 @@
 
         $text = "هوای ".$city." ".$weather_farsi." است.";
         
-        file_get_contents($tel_api."/sendmessage?chat_id=".$chatId."&text=Here's the weather in ".$city." : ". $text);
+        file_get_contents($tel_api."/sendmessage?chat_id=".$chatId."&text=".$text);
     }
 ?>

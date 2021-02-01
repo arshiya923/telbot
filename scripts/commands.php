@@ -73,20 +73,32 @@
     }
     else if (strpos($message, "/arz") === 0) {
         $arz_json_encoded = file_get_contents("http://api.navasan.tech/latest/?api_key=BMjxwcKGYiyvyXFQMEuUtR1aNewYIngb");
-        $arz_json_decoded = json_decode($weather_json_encoded, TRUE);
+        $arz_json_decoded = json_decode($arz_json_encoded, TRUE);
 
-        $arz_dolar = $arz_json_decoded['usd_sell']['value'];
-        $arz_dolar_change = $arz_json_decoded['usd_sell']['change'];
+        $arz_dolar_sell = $arz_json_decoded['usd_sell']['value'];
+        $arz_dolar_change_sell = $arz_json_decoded['usd_sell']['change'];
 
-        $text = "قیمت دلار آمریکا ".$arz_dolar."\n تغییرات ".abs($arz_dolar_change+0);
-        if(($arz_dolar_change+0) > 0)
+        $text = "قیمت دلار آمریکا فروش : ".$arz_dolar_sell."\n تغییرات ".abs($arz_dolar_change_sell+0);
+        if(($arz_dolar_change_sell+0) > 0)
+        {
+            $text = $text." 🔺\n";
+        }
+        else{
+            $text = $text." 🔻\n";
+        }
+        
+        $arz_dolar_buy = $arz_json_decoded['usd_buy']['value'];
+        $arz_dolar_change_buy = $arz_json_decoded['usd_buy']['change'];
+
+        $text = $text."قیمت دلار آمریکا خرید : ".$arz_dolar_buy."\n تغییرات ".abs($arz_dolar_change_buy+0);
+        if(($arz_dolar_change_buy+0) > 0)
         {
             $text = $text." 🔺";
         }
         else{
             $text = $text." 🔻";
         }
-
+        
         $text = urlencode($text);
 
         file_get_contents($tel_api."/sendmessage?chat_id=".$chatId."&text=".$text);

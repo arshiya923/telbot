@@ -13,7 +13,7 @@
         file_get_contents($tel_api."/sendmessage?chat_id=".$chatId."&text=".$payam);
     }
     else if (strpos($message, "/hava") === 0) {
-        $city = substr($message, 5);
+        $city = substr($message, 6);
         $city_fa_encoded = file_get_contents("https://api.mymemory.translated.net/get?q=".$city."&langpair=en|fa");
         $city_fa_decoded = json_decode($city_fa_encoded, TRUE);
         $city_fa = $city_fa_decoded ["responseData"]["translatedText"];

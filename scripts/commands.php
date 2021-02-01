@@ -65,7 +65,7 @@
 
         for ($i = 0; $i < $passlen; $i++) {
             $n = rand(0, $alphaLength);
-            $pass[] = $alphabet[$n];
+            $pass[$i] = $alphabet[$n];
         }
 
         $text = implode($pass);

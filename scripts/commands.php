@@ -14,6 +14,7 @@
     }
     else if (strpos($message, "/hava") === 0) {
         $city = substr($message, 5);
+        $city_fa = file_get_contents("https://api.mymemory.translated.net/get?q=".$city."&langpair=en|fa");
         if($city == "")
         {
             break;
@@ -40,7 +41,7 @@
             $weather_farsi = 'ابری';
         }
 
-        $text = "هوای ".$city." ".$weather_farsi." است.";
+        $text = "هوای ".$city_fa." ".$weather_farsi." است.";
         
         file_get_contents($tel_api."/sendmessage?chat_id=".$chatId."&text=".$text);
     }

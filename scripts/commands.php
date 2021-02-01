@@ -14,7 +14,7 @@
     }
     else if (strpos($message, "/hava") === 0) {
         $city = substr($message, 5);
-        $city_fa = file_get_contents("https://api.mymemory.translated.net/get?q=".$city."&langpair=en|fa");
+        $city_fa = file_get_contents("https://api.mymemory.translated.net/get?q=".$city."&langpair=en|fa")['matches'][0]['translation'];
         if($city == "")
         {
             return;

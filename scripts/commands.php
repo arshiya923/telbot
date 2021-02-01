@@ -22,4 +22,5 @@
         file_get_contents($tel_api."/sendmessage?chat_id=".$chatId."&text=".$weather);
         file_get_contents($tel_api."/sendmessage?chat_id=".$chatId."&text=Here's the weather in ".$city." : ". $weather);
     }
+    echo 'b';
 ?>

@@ -18,12 +18,10 @@
         $weather_json_decoded = json_decode($weather_json_encoded, TRUE);
         $weather_eng = $weather_json_decoded['weather'][0]['main'];
         
-
-        
         $weather_farsi = '';
         if($weather_eng === "Clear")
         {
-            $weather_farsi = utf8_decode('صاف')
+            $weather_farsi = 'صاف';
         }
         
         file_get_contents($tel_api."/sendmessage?chat_id=".$chatId."&text=Here's the weather in ".$city." : ". $weather_farsi);

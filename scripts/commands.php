@@ -5,9 +5,6 @@
     $chatId = $update["message"]["chat"]["id"];
     $message = $update["message"]["text"];
 
-    $text = "من این گروه کیری رو می بینم";
-    file_get_contents($tel_api."/sendmessage?chat_id=".$chatId."&text=".$text);
-
     if (strpos($message, "/chatid") === 0) {
         file_get_contents($tel_api."/sendmessage?chat_id=".$chatId."&text=".$chatId);
     }

@@ -78,7 +78,7 @@
         $arz_dolar_sell = $arz_json_decoded['usd_sell']['value'];
         $arz_dolar_change_sell = $arz_json_decoded['usd_sell']['change'];
 
-        $text = "قیمت دلار آمریکا فروش : ".$arz_dolar_sell."\n تغییرات ".abs($arz_dolar_change_sell+0);
+        $text = "قیمت دلار آمریکا فروش : ".$arz_dolar_sell."\n تغییرات ".abs($arz_dolar_change_sell);
         if(($arz_dolar_change_sell+0) > 0)
         {
             $text = $text." 🔺\n";
@@ -90,7 +90,7 @@
         $arz_dolar_buy = $arz_json_decoded['usd_buy']['value'];
         $arz_dolar_change_buy = $arz_json_decoded['usd_buy']['change'];
 
-        $text = $text."قیمت دلار آمریکا خرید : ".$arz_dolar_buy."\n تغییرات ".abs($arz_dolar_change_buy+0);
+        $text = $text."قیمت دلار آمریکا خرید : ".$arz_dolar_buy."\n تغییرات ".abs($arz_dolar_change_buy);
         if(($arz_dolar_change_buy+0) > 0)
         {
             $text = $text." 🔺";

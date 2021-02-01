@@ -31,6 +31,10 @@
         {
             $weather_farsi = 'برفی';
         }
+        else if($weather_eng === "Clouds")
+        {
+            $weather_farsi = 'ابری';
+        }
 
         $text = "هوای ".$city." ".$weather_farsi." است.";
         

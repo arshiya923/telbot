@@ -23,6 +23,16 @@
         {
             $weather_farsi = 'صاف';
         }
+        else if($weather_eng === "Rain")
+        {
+            $weather_farsi = 'بارانی';
+        }
+        else if($weather_eng === "Snow")
+        {
+            $weather_farsi = 'برفی';
+        }
+
+        $text = "هوای ".$city." ".$weather_farsi." است.";
         
         file_get_contents($tel_api."/sendmessage?chat_id=".$chatId."&text=Here's the weather in ".$city." : ". $weather_farsi);
     }

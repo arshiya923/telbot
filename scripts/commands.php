@@ -14,7 +14,9 @@
     }
     else if (strpos($message, "/hava") === 0) {
         $city = substr($message, 5);
-        $city_fa = file_get_contents("https://api.mymemory.translated.net/get?q=".$city."&langpair=en|fa")['matches'][0]['translation'];
+        $city_fa_encoded = file_get_contents("https://api.mymemory.translated.net/get?q=tehran&langpair=en|fa");
+        $city_fa_decoded = json_decode($city_fa_encoded, TRUE);
+        $city_fa = $city_fa_decoded ["responseData"]["translatedText"];
         if($city == "")
         {
             return;
@@ -43,10 +45,11 @@
 
         $text = "هوای ".$city_fa." ".$weather_farsi." است.";
         
-        if($city_fa == "")
+        if($city == "")
         {
-            $text = "شهر پیدا نشد!!";
+            $text = "شهر پیدا نشد!!!";
         }
+
 
         file_get_contents($tel_api."/sendmessage?chat_id=".$chatId."&text=".$text);
     }

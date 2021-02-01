@@ -17,7 +17,7 @@
         $city_fa = file_get_contents("https://api.mymemory.translated.net/get?q=".$city."&langpair=en|fa");
         if($city == "")
         {
-            break;
+            return;
         }
         $weather_json_encoded = file_get_contents("http://api.openweathermap.org/data/2.5/weather?q=".$city."&appid=2f24c59900e19fa5b545708c99edad89");
         $weather_json_decoded = json_decode($weather_json_encoded, TRUE);

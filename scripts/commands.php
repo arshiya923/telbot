@@ -57,7 +57,7 @@
         $passlen = substr($message, 6);
         $passlen = $passlen + 0;
 
-        $alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
+        $alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890*@&$';
 
         $pass = array(); //remember to declare $pass as an array
 
